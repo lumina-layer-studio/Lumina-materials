@@ -14,12 +14,10 @@ packages/
 seed/
   lumina-materials-seed.zip
 luts-src/
-  official/<brand>/<path>/<lut>.json
-  official/<brand>/<path>/<lut>.npy
+  community/<brand>/<path>/<lut>.json
+  community/<brand>/<path>/<lut>.npy
 lut-packages/
-  official/<lut_id>/<revision_id>-<sha12>.zip
-lut-seed/
-  lumina-luts-seed.zip
+  community/<lut_id>/<revision_id>-<sha12>.zip
 scripts/
   build_packages.py
   validate_packages.py
@@ -39,12 +37,11 @@ python scripts/validate_packages.py --archive seed/lumina-materials-seed.zip
 
 python scripts/build_lut_packages.py --source luts-src --packages lut-packages
 python scripts/validate_lut_packages.py --packages lut-packages
-python scripts/build_lut_seed.py --channel official --packages lut-packages --output lut-seed/lumina-luts-seed.zip
-python scripts/validate_lut_packages.py --seed lut-seed/lumina-luts-seed.zip
 ```
 
 `seed/lumina-materials-seed.zip` must contain official material packages only.
-`lut-seed/lumina-luts-seed.zip` must contain official LUT packages only.
+LUT seed artifacts are official-only; the current LUT package set is community
+content, so this repository does not publish a LUT seed archive.
 
 LUT packages are one-LUT-per-archive registry packages. They preserve the
 `luts-src/<channel>/...` relative path as the registry `local_path`, so Lumina
