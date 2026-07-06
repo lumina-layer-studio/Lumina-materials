@@ -267,7 +267,72 @@ def _revision_id(local_path: str, content_hash: str, display: dict[str, Any]) ->
     return f"rev_{sha256_bytes(revision_payload)[:26]}"
 
 
-def _infer_color_mode(local_path: str) -> str:
+def _read_source_metadata(source_file: Path) -> dict[str, Any]:
+    if source_file.suffix.lower() == ".json":
+        try:
+            data = json.loads(source_file.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+            return {}
+        return data if isinstance(data, dict) else {}
+    if source_file.suffix.lower() == ".npz":
+        try:
+            import numpy as np  # type: ignore[import-not-found]
+        except ImportError:
+            return {}
+        try:
+            with np.load(source_file, allow_pickle=False) as data:
+                if "metadata_json" not in data:
+                    return {}
+                raw_metadata = data["metadata_json"].item()
+        except Exception:
+            return {}
+        if isinstance(raw_metadata, bytes):
+            raw_metadata = raw_metadata.decode("utf-8", errors="ignore")
+        if not isinstance(raw_metadata, str):
+            return {}
+        try:
+            parsed = json.loads(raw_metadata)
+        except json.JSONDecodeError:
+            return {}
+        return parsed if isinstance(parsed, dict) else {}
+    return {}
+
+
+def _normalize_color_mode(value: Any) -> str:
+    raw_value = str(value or "").strip()
+    if not raw_value:
+        return "unknown"
+    lowered = raw_value.casefold()
+    compact = re.sub(r"[\s_\-()]+", "", lowered)
+    if "8色" in raw_value or "8color" in compact or "8colour" in compact:
+        return "8-color"
+    if "6色" in raw_value or "6color" in compact or "6colour" in compact:
+        return "6-color"
+    if "5色" in raw_value or "5color" in compact or "5colour" in compact:
+        return "5-color"
+    if "4色" in raw_value or "4color" in compact or "4colour" in compact:
+        return "4-color"
+    if "2色" in raw_value or "2color" in compact or "2colour" in compact:
+        return "2-color"
+    if "cmywgk" in compact or "rybwgk" in compact or "1296" in compact:
+        return "6-color"
+    if "cmyw" in compact or "cmyk" in compact or "rybw" in compact:
+        return "4-color"
+    if compact == "bw" or "blackwhite" in compact:
+        return "2-color"
+    return "unknown"
+
+
+def _infer_color_mode(local_path: str, metadata: dict[str, Any] | None = None) -> str:
+    metadata = metadata or {}
+    color_mode = _normalize_color_mode(metadata.get("color_mode"))
+    if color_mode != "unknown":
+        return color_mode
+    palette = metadata.get("palette")
+    if isinstance(palette, dict):
+        palette_count = len(palette)
+        if palette_count in {2, 4, 5, 6, 8}:
+            return f"{palette_count}-color"
     lowered = local_path.casefold()
     if "8色" in local_path or "8color" in lowered:
         return "8-color"
@@ -300,8 +365,9 @@ def _infer_display(local_path: str) -> dict[str, Any]:
 
 
 def _infer_compatibility(local_path: str, source_file: Path) -> dict[str, Any]:
+    metadata = _read_source_metadata(source_file)
     return {
-        "color_mode": _infer_color_mode(local_path),
+        "color_mode": _infer_color_mode(local_path, metadata),
         "file_format": source_file.suffix.lower().lstrip("."),
         "source": "lut-preset",
         "supports_multi_select": True,

@@ -159,6 +159,36 @@ def test_build_lut_package_from_source_preserves_local_path(tmp_path: Path) -> N
     assert result["lut"]["display"]["manufacturer"] == "BrandA"
 
 
+def test_build_lut_package_from_source_reads_json_color_mode_metadata(tmp_path: Path) -> None:
+    source_root = tmp_path / "luts-src"
+    source_file = source_root / "community" / "BrandA" / "lumina_lut.json"
+    source_file.parent.mkdir(parents=True)
+    source_file.write_text(
+        json.dumps(
+            {
+                "color_mode": "8-Color Max",
+                "palette": {
+                    f"Slot {index}": {"hex_color": "#ffffff"}
+                    for index in range(1, 9)
+                },
+                "entries": [],
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    package_path = build_lut_package_from_source(
+        source_file,
+        tmp_path / "lut-packages",
+        "community",
+        source_root=source_root,
+    )
+    result = validate_lut_archive(package_path)
+
+    assert result["lut"]["compatibility"]["color_mode"] == "8-color"
+
+
 def test_build_lut_seed_is_official_only_and_valid(tmp_path: Path) -> None:
     packages_dir = tmp_path / "lut-packages"
     _write_lut_package(packages_dir / "official" / "lut_test" / "rev_test.zip")

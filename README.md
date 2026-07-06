@@ -43,7 +43,8 @@ python scripts/validate_lut_packages.py --packages lut-packages
 LUT seed artifacts are official-only; the current LUT package set is community
 content, so this repository does not publish a LUT seed archive.
 
-LUT packages are one-LUT-per-archive registry packages. They preserve the
-`luts-src/<channel>/...` relative path as the registry `local_path`, so Lumina
-Studio can install the cloud copy under `lut-preset/Cloud/<local_path>` while
-still matching locally installed LUTs by `local_path` and `content_hash`.
+LUT packages are one-LUT-per-archive registry packages. Their registry
+`local_path` is relative to `luts-src/<channel>/` and does not include the
+channel prefix, so Lumina Studio can install the cloud copy under
+`lut-preset/Cloud/<local_path>` while still matching locally installed LUTs by
+`local_path` and `content_hash`.
