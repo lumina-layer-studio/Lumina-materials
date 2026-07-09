@@ -1,0 +1,251 @@
+{
+  "duplicates_skipped": [
+    {
+      "compatibility": {
+        "color_modes": [
+          "4-Color",
+          "BW"
+        ],
+        "extension": ".npy",
+        "source": "lumina-local-lut-preset",
+        "source_path": "lut-preset/Custom/Bambulab&PLA&RYBW&红-黄-蓝-白.npy"
+      },
+      "display": {
+        "extension": ".npy",
+        "manufacturer": "Custom",
+        "name": "Bambulab&PLA&RYBW&红-黄-蓝-白",
+        "source_path": "lut-preset/Custom/Bambulab&PLA&RYBW&红-黄-蓝-白.npy"
+      },
+      "file_hash": "65878b7302d3bdd5ebbea0a710cd5124fc0b58e6aa118a3f1db7cd761e1e742e",
+      "local_path": "Custom/Bambulab&PLA&RYBW&红-黄-蓝-白.npy",
+      "lut_id": "lut_229686110dd24dc88608ccb7",
+      "package_url": "/api/material-registry/v1/luts/packages/community/lut_229686110dd24dc88608ccb7/rev_64cb82d8724d0b13b841701f-7ca27d2e4211.zip",
+      "reason": "same file hash already exists in Lumina Materials",
+      "revision_id": "rev_64cb82d8724d0b13b841701f"
+    },
+    {
+      "compatibility": {
+        "color_modes": [
+          "Merged",
+          "8-Color",
+          "6-Color",
+          "4-Color",
+          "BW"
+        ],
+        "extension": ".npz",
+        "source": "lumina-local-lut-preset",
+        "source_path": "lut-preset/Custom/Merged_8-Color+BW+6-Color+4-Color_20260305_213304.npz"
+      },
+      "display": {
+        "extension": ".npz",
+        "manufacturer": "Custom",
+        "name": "Merged_8-Color+BW+6-Color+4-Color_20260305_213304",
+        "source_path": "lut-preset/Custom/Merged_8-Color+BW+6-Color+4-Color_20260305_213304.npz"
+      },
+      "file_hash": "5903012ed494b00cffffb81550a4f11c4efde33500f00797b4967b3cecd274e7",
+      "local_path": "Custom/Merged_8-Color+BW+6-Color+4-Color_20260305_213304.npz",
+      "lut_id": "lut_e7b0adbfc0c8afa2249bf083",
+      "package_url": "/api/material-registry/v1/luts/packages/community/lut_e7b0adbfc0c8afa2249bf083/rev_14ff69cd16cc8ef44b8140be-d414919fc55e.zip",
+      "reason": "same file hash as selected Custom/Merged_8-Color+6-Color+BW+4-Color_20260227_222117.npz",
+      "revision_id": "rev_14ff69cd16cc8ef44b8140be"
+    }
+  ],
+  "duplicates_skipped_count": 2,
+  "generated_at": "2026-07-09T00:29:17.442611+00:00",
+  "materials_package_count_before": 56,
+  "selected_unique_count": 19,
+  "server_catalog_url": "http://154.17.28.23/api/material-registry/v1/luts/catalog?channel=community&limit=500",
+  "server_lut_count": 69,
+  "server_only_candidate_count": 21,
+  "sync_result": {
+    "desired_luts_uploaded_and_approved": 67,
+    "exact_server_materials_match": true,
+    "materials_package_count_after": 67,
+    "obsolete_server_luts_unpublished": 69,
+    "remaining_duplicate_file_hash_groups": [
+      {
+        "decision": "kept; existing Lumina Materials aliases with different local_path labels",
+        "file_hash": "65878b7302d3bdd5ebbea0a710cd5124fc0b58e6aa118a3f1db7cd761e1e742e",
+        "local_paths": [
+          "通用LUT[有色差]RYBW General for personal use.npy",
+          "Elegoo/Elegoo_pla_RYBW.npy"
+        ]
+      }
+    ],
+    "server_data_backup": "/var/lib/lumina-material-registry/data.bak-lut-materials-sync-20260709-003153",
+    "server_total_count": 67
+  },
+  "written": [
+    {
+      "action": "added",
+      "file_hash": "280c6134b3c471380116c97a3bc60ad3a78470c70b1369aefae7c9d29022ae37",
+      "local_path": "Custom/Bambulab&PLA&8色&红-品红-青-蓝-黄-白-绿-黑.npy",
+      "previous_hash": null,
+      "server_lut_id": "lut_becc0c7d4a4f4425ffcfa5e8",
+      "server_revision_id": "rev_e34fc4a49451b7d99fac47ee",
+      "target": "luts-src\\community\\Custom\\Bambulab&PLA&8色&红-品红-青-蓝-黄-白-绿-黑.npy"
+    },
+    {
+      "action": "added",
+      "file_hash": "5be77143e238d33500bc9e7118f2a52bdf73bc2fa8a1ce52590a6ec08c001b18",
+      "local_path": "Custom/Bambulab&PLA&BW&白-黑.npy",
+      "previous_hash": null,
+      "server_lut_id": "lut_9aa01699e07d4b58aaa38d85",
+      "server_revision_id": "rev_079a96ba5a8284c377645a3e",
+      "target": "luts-src\\community\\Custom\\Bambulab&PLA&BW&白-黑.npy"
+    },
+    {
+      "action": "added",
+      "file_hash": "1951d641863be3a4aaf6144b98957aeeb58986e85e84a07db79ed5fccdc3e728",
+      "local_path": "Custom/Bambulab&PLA&CMYW&青-品红-黄-绿-白-黑.npy",
+      "previous_hash": null,
+      "server_lut_id": "lut_5e6b07f9652d5aa082acd33e",
+      "server_revision_id": "rev_c03986ef259c3e2cc8a8acae",
+      "target": "luts-src\\community\\Custom\\Bambulab&PLA&CMYW&青-品红-黄-绿-白-黑.npy"
+    },
+    {
+      "action": "added",
+      "file_hash": "eb8d2692ca9889d4d13c2b30cec5522dd64f96aab48cf0f6b17f0d62980613ba",
+      "local_path": "Custom/CMYK.json",
+      "previous_hash": null,
+      "server_lut_id": "lut_e7a9c29689fc2b3257e7040e",
+      "server_revision_id": "rev_7c310bf659ba3aa2b2543292",
+      "target": "luts-src\\community\\Custom\\CMYK.json"
+    },
+    {
+      "action": "added",
+      "file_hash": "84eec46dffcc2193d60c0ac498b9f0bf1c39bef5f86fa1b2feccc43b717d1914",
+      "local_path": "Custom/lumina_lut.json",
+      "previous_hash": null,
+      "server_lut_id": "lut_7a385268dddac6eb6b81e782",
+      "server_revision_id": "rev_b6d012b5c0cb114c3bf46927",
+      "target": "luts-src\\community\\Custom\\lumina_lut.json"
+    },
+    {
+      "action": "added",
+      "file_hash": "5903012ed494b00cffffb81550a4f11c4efde33500f00797b4967b3cecd274e7",
+      "local_path": "Custom/Merged_8-Color+6-Color+BW+4-Color_20260227_222117.npz",
+      "previous_hash": null,
+      "server_lut_id": "lut_c945c2dbeae77e46ab924d3c",
+      "server_revision_id": "rev_14ff69cd16cc8ef44b8140be",
+      "target": "luts-src\\community\\Custom\\Merged_8-Color+6-Color+BW+4-Color_20260227_222117.npz"
+    },
+    {
+      "action": "added",
+      "file_hash": "bee7d53183b26afe7fa5d6c5744322971441d78540af289066e71205e110e494",
+      "local_path": "Custom/Merged_Aliz_PETG_keyed_20260315_111137.json",
+      "previous_hash": null,
+      "server_lut_id": "lut_63ae9e8efd41ef51938a9dc3",
+      "server_revision_id": "rev_f8371d60afb1a4410f5667ba",
+      "target": "luts-src\\community\\Custom\\Merged_Aliz_PETG_keyed_20260315_111137.json"
+    },
+    {
+      "action": "added",
+      "file_hash": "bc794066dae5ddb72e804c95be129b09c1b07e619fab597696ba09f0ef799d99",
+      "local_path": "Custom/Merged_Aliz_PETG_keyed_20260315_111137.npz",
+      "previous_hash": null,
+      "server_lut_id": "lut_6d1c126bc3cf2a7dbc4ee248",
+      "server_revision_id": "rev_0481fb9e05872c9527843f57",
+      "target": "luts-src\\community\\Custom\\Merged_Aliz_PETG_keyed_20260315_111137.npz"
+    },
+    {
+      "action": "added",
+      "file_hash": "16a60f165331d2f663e65cefe091c7802f7caf96881bac66c0f1a7e2dac98c71",
+      "local_path": "Custom/WJXCPLA6C.json",
+      "previous_hash": null,
+      "server_lut_id": "lut_275a4b38bba00bbbe98622fa",
+      "server_revision_id": "rev_65869922cc406564c8fcb69b",
+      "target": "luts-src\\community\\Custom\\WJXCPLA6C.json"
+    },
+    {
+      "action": "added",
+      "file_hash": "2854cfc777211cd320d5a6763d775d55d5658459a48646b9c227aa85647073b8",
+      "local_path": "lut-npy-presets/Aliz/PLA/8色/Aliz&PLA&8色红-黄-蓝-品红-青-白-绿-黑&20260320.json",
+      "previous_hash": null,
+      "server_lut_id": "lut_326af6bf088e6477d8403ed9",
+      "server_revision_id": "rev_83c841346bf1f5a7c6fc1703",
+      "target": "luts-src\\community\\lut-npy-presets\\Aliz\\PLA\\8色\\Aliz&PLA&8色红-黄-蓝-品红-青-白-绿-黑&20260320.json"
+    },
+    {
+      "action": "updated",
+      "file_hash": "a22a5fcef842e0766ca92a7a14bb4e3b96de861a53cd812ef5970517b0f6a273",
+      "local_path": "XYD小明/PLA/4色/XYD&PLA&CMYW&青-品红-黄-白.json",
+      "previous_hash": "44d62ff79efa742ed8b5ecc6eb89a505725a08d059d69019678e1aa7458f0da9",
+      "server_lut_id": "lut_bfcaab205e1b78238270a5b7",
+      "server_revision_id": "rev_6bea37972a952186aa4178e6",
+      "target": "luts-src\\community\\XYD小明\\PLA\\4色\\XYD&PLA&CMYW&青-品红-黄-白.json"
+    },
+    {
+      "action": "updated",
+      "file_hash": "5fccc2086a739fef7372e6b7ea0c4229d30885624a42376d84bb07cf667661f5",
+      "local_path": "XYD小明/PLA/4色/XYD&PLA&RYBW&红-蓝-黄-白.json",
+      "previous_hash": "2e0cb27019a8f0a27bbb876de1b143e36ed6f8761977e942e2a0bbc5c4f8c33d",
+      "server_lut_id": "lut_c76b1e421a81703f1e54e1eb",
+      "server_revision_id": "rev_21e3c591f135c6ff20c3344a",
+      "target": "luts-src\\community\\XYD小明\\PLA\\4色\\XYD&PLA&RYBW&红-蓝-黄-白.json"
+    },
+    {
+      "action": "updated",
+      "file_hash": "3174e0bb1051136103d9054b78744de1a9beaba2897657464025bd6d2712916a",
+      "local_path": "XYD小明/PLA/6色/XYD&PLA&CMYW&青-品红-黄-绿-白-黑.json",
+      "previous_hash": "84cd24566f8af12a4704ebab46517c4c0259468d8a63c13d5726c4d482b9aa57",
+      "server_lut_id": "lut_aea7614f6714aed144d858f6",
+      "server_revision_id": "rev_250649bdf76f8c9c5345557b",
+      "target": "luts-src\\community\\XYD小明\\PLA\\6色\\XYD&PLA&CMYW&青-品红-黄-绿-白-黑.json"
+    },
+    {
+      "action": "updated",
+      "file_hash": "f3eac49e12795947e714b05c64b69faf2ced9eb60f57780c41992e54a151d1d7",
+      "local_path": "XYD小明/PLA/6色/XYD&PLA&RYBW&红-蓝-黄-绿-白-黑.json",
+      "previous_hash": "8fabe1716ed5e731345282a74a12050aaa62100249b5a35bbbdc66f3af3f0490",
+      "server_lut_id": "lut_ce98adaf62904bf9b71e686e",
+      "server_revision_id": "rev_5a520ef74d356a07babcee56",
+      "target": "luts-src\\community\\XYD小明\\PLA\\6色\\XYD&PLA&RYBW&红-蓝-黄-绿-白-黑.json"
+    },
+    {
+      "action": "updated",
+      "file_hash": "13a75458c6538270da3da76de40dc7ef2072890a44c1986c6e5a5b211e4b5a52",
+      "local_path": "XYD小明/PLA/8色/XYD&PLA&8色&红-品红-青-蓝-黄-白-绿-黑.json",
+      "previous_hash": "68894a97fca21b28fcd66a7b074de6487fa08ac877cbafbe1c12d5a2817d51cd",
+      "server_lut_id": "lut_d91f6fcdfb807346d872c100",
+      "server_revision_id": "rev_8f2e5fe5327850bf8cdb0e12",
+      "target": "luts-src\\community\\XYD小明\\PLA\\8色\\XYD&PLA&8色&红-品红-青-蓝-黄-白-绿-黑.json"
+    },
+    {
+      "action": "updated",
+      "file_hash": "6ed6fa3c856d390c92efcea86cee1cdb452c539e2d508a2d47ad317cd815614b",
+      "local_path": "瑞贝思/瑞贝思&2色&PLA&黑白&20260401.json",
+      "previous_hash": "fa3a2ea9cdcd0a71f17adf3f6bb793a995f6909a657eb16af5b6c3c96886d9cb",
+      "server_lut_id": "lut_51828030f51ae89cdf352183",
+      "server_revision_id": "rev_298404f3d4b334b918759561",
+      "target": "luts-src\\community\\瑞贝思\\瑞贝思&2色&PLA&黑白&20260401.json"
+    },
+    {
+      "action": "updated",
+      "file_hash": "21265b99d00cf8d7c89885cb5061d16de46671617cf9377ff32ead6248367ae8",
+      "local_path": "瑞贝思/瑞贝思&4色&PLA&红黄蓝白&20260401.json",
+      "previous_hash": "973a6a4d73d2d7e3792938797d65699a6305cb54a7487e2c7c785ae267b069a5",
+      "server_lut_id": "lut_0f17252c52548de556d7b7d4",
+      "server_revision_id": "rev_46a64866e78c850ec5bcda09",
+      "target": "luts-src\\community\\瑞贝思\\瑞贝思&4色&PLA&红黄蓝白&20260401.json"
+    },
+    {
+      "action": "updated",
+      "file_hash": "7c409725cabfa7570036f0b4d53007290c15cb09478c86f17646ff9801936a9d",
+      "local_path": "瑞贝思/瑞贝思&6色&PLA&红黄蓝白黑绿&20260401.json",
+      "previous_hash": "9e96c7f656971fb6a98f56de050542834147510749012c043914c1b3b6b3b995",
+      "server_lut_id": "lut_6ec62404cad76392c441a0ba",
+      "server_revision_id": "rev_2d77b5ec465c2dfeadc21612",
+      "target": "luts-src\\community\\瑞贝思\\瑞贝思&6色&PLA&红黄蓝白黑绿&20260401.json"
+    },
+    {
+      "action": "added",
+      "file_hash": "93efea6b4f3267f416fe1aba5a9e82d0ef7ae21f38ec864eb9dd22918c00c1eb",
+      "local_path": "瑞贝思/瑞贝思&Merged_6-Color+BW+4-Color_20260401_141859.json",
+      "previous_hash": null,
+      "server_lut_id": "lut_f3fc7c40d8a7e1641fb31f35",
+      "server_revision_id": "rev_bc19cdde490885906981050b",
+      "target": "luts-src\\community\\瑞贝思\\瑞贝思&Merged_6-Color+BW+4-Color_20260401_141859.json"
+    }
+  ]
+}
