@@ -54,7 +54,7 @@
   "generated_at": "2026-07-09T00:29:17.442611+00:00",
   "materials_package_count_before": 56,
   "selected_unique_count": 19,
-  "server_catalog_url": "http://154.17.28.23/api/material-registry/v1/luts/catalog?channel=community&limit=500",
+  "server_catalog_url": "<registry-host>/api/material-registry/v1/luts/catalog?channel=community&limit=500",
   "server_lut_count": 69,
   "server_only_candidate_count": 21,
   "sync_result": {
@@ -72,7 +72,7 @@
         ]
       }
     ],
-    "server_data_backup": "/var/lib/lumina-material-registry/data.bak-lut-materials-sync-20260709-003153",
+    "server_data_backup": "<server-data-backup-path>",
     "server_total_count": 67
   },
   "written": [
