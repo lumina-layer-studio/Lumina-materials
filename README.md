@@ -28,3 +28,9 @@ python scripts/build_public_seeds.py --public-dir public/v1 --dataset-version 20
 构建只读取本地公开快照，逐包校验哈希和身份，原始分发 ZIP 保持不变。同名耗材独立保存，避免覆盖。包内保留使用说明。下载固定版本请见本仓库 Releases。
 
 `materials-src`、`packages`、`luts-src`、`lut-packages`、`seed` 及旧构建脚本用于历史重建；当前完整离线包以 `public/v1` 为输入。资源审核、账号与软件部署代码在各自仓库维护，不进入本仓库。
+
+## 自动同步
+
+GitHub Actions 工作流每小时拉取耗材服务的匿名公开目录与互动统计。已校验且未改变的资源包和色板直接复用，只有新包才占下载带宽。全部读取和校验成功后才更新目录，失败保留上一份快照；下架内容从最新树移除，历史提交及固定离线版本保留。
+
+该流程只使用 GitHub 当前任务自带、限定本仓库的写入权限，服务器不保存 GitHub 密钥，不读取账号数据库。正式耗材服务器升级后，将仓库变量 `PUBLIC_CATALOG_SYNC` 设为 `enabled` 才启用定时同步；也可以手动触发工作流。升级前保持关闭，避免旧接口生成不完整统计。
