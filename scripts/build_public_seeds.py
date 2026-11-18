@@ -65,7 +65,7 @@ def build(public_dir: Path, output: Path, version: str) -> dict[str, object]:
             'material_count' if kind=='materials' else 'lut_count':len(entries),
             'download_url':f'https://github.com/lumina-layer-studio/Lumina-materials/releases/download/v{version}/{destination.name}'}
     release={'kind':'lumina_resource_release','schema_version':1,'dataset_version':version,'artifacts':artifacts,
-        'selection':{'basis':'all_current_approved_public_resources','calibration_review':'Registry approval; original author and channel retained'},
+        'selection':{'basis':'all_current_approved_public_resources','publication_review':True,'calibration_review':False},
         'licenses':{'new_contributions':'LicenseRef-Lumina-Data-1.0 with explicit contributor consent',
             'existing_data':'Original per-resource licenses and source information are retained; no retroactive relicensing'}}
     (output/'resource-release.json').write_bytes(json.dumps(release,ensure_ascii=False,sort_keys=True,indent=2).encode()+b'\n')
