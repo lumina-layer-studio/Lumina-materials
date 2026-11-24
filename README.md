@@ -1,36 +1,68 @@
 # Lumina Materials
 
-Lumina Studio 的公开耗材档案与 LUT 数据仓库。当前可下载目录在 `public/v1`；历史源文件和旧构建材料保留用于溯源，不代表当前推荐目录。
+[English](README.md) · [简体中文](README_CN.md) · [Catalog layout](#catalog-layout) · [Offline bundles](#offline-bundles) · [Data license](#data-license) · [Lumina Studio](https://github.com/lumina-layer-studio/Lumina-Layers)
 
-The public material and LUT data repository for Lumina Studio. `public/v1` is the current approved download catalog. Historical source directories are retained for provenance.
+Public filament calibration profiles and LUT presets for [Lumina Studio](https://github.com/lumina-layer-studio/Lumina-Layers).
 
-## 当前目录 / Current catalog
+`public/v1/` is the active download catalog used by Lumina Studio to browse previews and fetch calibrated filament profiles or fixed-board LUTs on demand, without requiring a GitHub account.
 
-- 662 份耗材档案、99 个 LUT，包括六朔厂商直接提供的 PETG CMYW 校准。
-- 保留原作者、供稿来源、原文件名、资源 ID、修订和实际发布频道；厂商供稿不自动变成官方认证。
-- Studio 可先预览，按项下载；源码版默认读取本目录，用户无需 GitHub 账号。
-- 点赞、收藏和下载量是目录发布时的匿名统计快照，实时账号操作由独立耗材服务提供。
+## What is in the catalog
 
-## 使用许可 / Data terms
+- **662 filament profiles** and **99 LUT presets** across official calibrations, community submissions, and manufacturer-contributed datasets (including the [Sixshuo PETG CMYW calibration](docs/manufacturer-sources.md)).
+- Preserved provenance for every entry: original author, source attribution, original filename, resource ID, revision ID, and release channel (`official` or `community`).
+- Anonymous download, like, and bookmark snapshots in `activity.json`, updated alongside the catalog.
 
-允许接单打印、销售打印作品；采用新协议的数据禁止倒卖、收费分发和搭收费资源库。详见 [数据使用说明与协议](DATA-LICENSE.md)。已有许可的历史资源继续按原条款；公开不撤销旧许可，也不把未知署名改写为原创。商标与 Logo 不属于数据授权。
+## Using with Lumina Studio
 
-Paid printing and the sale of produced works are allowed. Resources expressly carrying the new Lumina data license may not be resold or distributed through paid data libraries. Existing per-resource licenses remain valid. See [the data terms](DATA-LICENSE.md).
+Inside Lumina Studio, you can browse catalog previews and download only the filament profiles or LUTs you want to print with. Imported profiles and LUTs are saved in your local material library so they continue to work offline.
 
-## 离线包 / Offline collections
+For instructions on photographing calibration boards, extracting your own filament profiles, and matching print settings, see the [Lumina Studio Wiki](https://wiki.luminastudio.com.cn/).
 
-固定版本资源包含全部已审核公开的官方与社区条目，保持各自的实际频道。两包用于浏览和按项添加，不在启动时安装全库。
+## Catalog layout
 
-```sh
-python scripts/build_public_seeds.py --public-dir public/v1 --dataset-version 2026.11.18.1 --output build/public-resources
+```text
+public/v1/
+├── DATA-LICENSE.md          # Lumina Data License 1.0 (bilingual)
+├── materials/
+│   ├── catalog.json         # Approved filament profile index
+│   └── activity.json        # Anonymous download and bookmark counts
+├── packages/                # Immutable filament profile ZIP archives
+└── luts/
+    ├── catalog.json         # Approved LUT preset index
+    ├── activity.json        # Anonymous download and bookmark counts
+    ├── packages/            # Immutable LUT ZIP archives
+    └── previews/            # Swatch and palette preview images
 ```
 
-构建只读取本地公开快照，逐包校验哈希和身份，原始分发 ZIP 保持不变。同名耗材独立保存，避免覆盖。包内保留使用说明。下载固定版本请见本仓库 Releases。
+Earlier top-level directories (`materials-src/`, `packages/`, `luts-src/`, `lut-packages/`, and `seed/`) are retained for historical provenance; current tooling and releases read from `public/v1/`.
 
-`materials-src`、`packages`、`luts-src`、`lut-packages`、`seed` 及旧构建脚本用于历史重建；当前完整离线包以 `public/v1` 为输入。资源审核、账号与软件部署代码在各自仓库维护，不进入本仓库。
+## Offline bundles
 
-## 自动同步
+Versioned [GitHub Releases](https://github.com/lumina-layer-studio/Lumina-materials/releases) publish complete offline snapshots (`lumina-materials-seed.zip`, `lumina-luts-seed.zip`, and `resource-release.json`) containing all approved official and community entries at that release tag. You can browse these bundles locally and import individual profiles or LUTs as needed.
 
-GitHub Actions 工作流每小时拉取耗材服务的匿名公开目录与互动统计。已校验且未改变的资源包和色板直接复用，只有新包才占下载带宽。全部读取和校验成功后才更新目录，失败保留上一份快照；下架内容从最新树移除，历史提交及固定离线版本保留。
+To build the offline seed archives locally from `public/v1/`:
 
-该流程只使用 GitHub 当前任务自带、限定本仓库的写入权限，服务器不保存 GitHub 密钥，不读取账号数据库。正式耗材服务器升级后，将仓库变量 `PUBLIC_CATALOG_SYNC` 设为 `enabled` 才启用定时同步；也可以手动触发工作流。升级前保持关闭，避免旧接口生成不完整统计。
+```bash
+python scripts/build_public_seeds.py \
+  --public-dir public/v1 \
+  --dataset-version 2026.11.18.1 \
+  --output build/public-resources
+```
+
+The build script runs offline against the checked-in `public/v1/` snapshot, verifies every package's SHA-256 checksum and manifest identity, and packs the original distribution ZIPs unchanged alongside [DATA-LICENSE.md](DATA-LICENSE.md).
+
+Run the local validation tests with:
+
+```bash
+python -m unittest discover -s tests
+```
+
+## Data license
+
+Resources marked with `LicenseRef-Lumina-Data-1.0` are governed by the [Lumina Data License 1.0](DATA-LICENSE.md):
+
+- **What you can do:** Download, study, modify, and use the data in your own print workflows; take paid printing commissions and sell physical prints or generated models; share the data or modified versions free of charge while keeping author, source, and license notices intact.
+- **What is restricted:** Selling or reselling the dataset files or modified datasets, charging download fees, or placing the data behind paid resource libraries, memberships, or paid APIs.
+- **Existing licenses:** Historical resources published under terms such as CC BY 4.0 remain under their original licenses. Trademarks, brand names, and logos belong to their respective owners.
+
+See [DATA-LICENSE.md](DATA-LICENSE.md) for the full Chinese and English terms.
